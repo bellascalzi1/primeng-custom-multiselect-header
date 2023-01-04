@@ -9,9 +9,11 @@
   #hello
 >
   <ng-template pTemplate="header">
-    <p-checkbox [binary]="true" (click)="myFunction($event)"></p-checkbox>
-    <!-- <input type="checkbox" (change)="myFunction($event)" /> -->
-    <span>Hello</span>
+    <div class="header__select-all">
+      <p-checkbox [binary]="true" (click)="myFunction($event)"></p-checkbox>
+      <!-- <input type="checkbox" (change)="myFunction($event)" /> -->
+      <span>Select All</span>
+    </div>
   </ng-template>
   <ng-template let-value pTemplate="selectedItems">
     <div
