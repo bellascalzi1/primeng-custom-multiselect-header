@@ -1,0 +1,43 @@
+<p-multiSelect
+  [options]="countries"
+  [(ngModel)]="selectedCountries"
+  defaultLabel="Select a Country"
+  optionLabel="name"
+  class="multiselect-custom"
+  [showToggleAll]="false"
+  [filter]="false"
+  #hello
+>
+  <ng-template pTemplate="header">
+    <p-checkbox [binary]="true" (click)="myFunction($event)"></p-checkbox>
+    <!-- <input type="checkbox" (change)="myFunction($event)" /> -->
+    <span>Hello</span>
+  </ng-template>
+  <ng-template let-value pTemplate="selectedItems">
+    <div
+      class="country-item country-item-value"
+      *ngFor="let option of selectedCountries"
+    >
+      <img
+        src="assets/showcase/images/demo/flag/flag_placeholder.png"
+        [class]="'flag flag-' + option.code.toLowerCase()"
+      />
+      <div>{{ option.name }}</div>
+    </div>
+    <div
+      *ngIf="!selectedCountries || selectedCountries.length === 0"
+      class="country-placeholder"
+    >
+      Select Countries
+    </div>
+  </ng-template>
+  <ng-template pTemplate="filter" let-options="options">
+    <h1>helo</h1>
+  </ng-template>
+  <ng-template let-country pTemplate="item">
+    <div class="country-item">
+      <div>{{ country.name }}</div>
+    </div>
+  </ng-template>
+  <ng-template pTemplate="footer"> Footer Content </ng-template>
+</p-multiSelect>
